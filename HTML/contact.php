@@ -66,12 +66,11 @@ if (isset($_POST['logout'])) {
         </div>
         <div id="mobile">
             <a href="cart.php"><i class="fa-solid fa-bag-shopping"></i></a>
-            <a href="profile.php"><i class="fas fa-user-alt"></i></a>
+            <?php if ($loggedIn) { ?>
+            <a onclick="togglemenu()"><i class="fas fa-user-alt"></i></a>
+            <?php } ?>
             <i id="bar" class="fas fa-outdent"></i>
-        </div>
-
-
-        
+        </div>        
     </section>
 
     <section class="">
@@ -215,6 +214,6 @@ if (isset($_POST['logout'])) {
             return confirm("Are you sure you want to log out?");
         }
     </script>
-
+    <script src="../JavaScript/script.js"></script>
 </body>
 </html>

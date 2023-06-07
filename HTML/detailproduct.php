@@ -3,7 +3,7 @@ session_start();
 
 require_once ('../php/CreateDb.php');
 require_once ('../php/component.php');
-
+$loggedIn = isset($_SESSION['user']);
 $database = new CreateDb("Gymdb", "Gymtb");
 
 $data = $database->getData(); // Menggunakan metode getData() untuk mengambil semua data
@@ -61,14 +61,14 @@ if (isset($_POST['add'])){
               }
             $result = $database->UpDataById($id,$plan,$quan,$harga);
             echo "<script>alert('Add Product Success!')</script>";
-    }
-    if (isset($_POST['logout'])) {
+    }   
+}
+if (isset($_POST['logout'])) {
         unset($_SESSION['user']);
         session_destroy();
         echo "<script>alert('You have been logged out!')</script>";
         echo "<script>window.location = 'home.php'</script>";
     }
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -93,14 +93,16 @@ if (isset($_POST['add'])){
                 <li><a href="about.php">About</a></li>
                 <li><a href="contact.php" >Contact</a></li>
                 <li id="lg-bag"><a href="Cart.php "><i class="fa-solid fa-bag-shopping"></i></a></li>
+                <?php if ($loggedIn) { ?>
                 <li id="lg-profile"><a class="fas fa-user-alt" onclick="togglemenu()"></a></li>
+                <?php } ?>
                 <a href="#" id="close"><i class="fa-solid fa-xmark"></i></a>
             </ul>
             <div class="sub-menu-wrap" id="subMenu">
                 <div class="sub-menu">
                     <div class="user-info">
                         <img src="../Image/profil.png">
-                        <h3>Nama User</h3>
+                        <h3><?php echo $_SESSION['user']?></h3>
                     </div>
                     <hr>
                     <a href="profil.php" class="sub-menu-link">
@@ -121,6 +123,13 @@ if (isset($_POST['add'])){
                         </button>
                     </form>
                 </div>
+            </div>
+            <div id="mobile">
+                <a href="Cart.php"><i class="fa-solid fa-bag-shopping"></i></a>
+                <?php if ($loggedIn) { ?>
+                <a onclick="togglemenu()"><i class="fas fa-user-alt"></i></a>
+                <?php } ?>
+                <i id="bar" class="fas fa-outdent"></i>
             </div>
         </div>
         
@@ -260,23 +269,23 @@ if (isset($_POST['add'])){
         });
     </script>
     <script>
-  // Fungsi untuk mengatur nilai-nilai yang akan dikirim saat formulir di-submit
-  function setFormValues() {
-    // Mendapatkan nilai dari elemen-elemen yang ingin dikirim
-    var selectedQuantity = document.getElementById('quantity-value').innerText;
-    var selectedPlan = document.querySelector('.btn-group .active').value;
+        // Fungsi untuk mengatur nilai-nilai yang akan dikirim saat formulir di-submit
+        function setFormValues() {
+        // Mendapatkan nilai dari elemen-elemen yang ingin dikirim
+        var selectedQuantity = document.getElementById('quantity-value').innerText;
+        var selectedPlan = document.querySelector('.btn-group .active').value;
 
-    // Mengatur nilai-nilai ke atribut value pada elemen input tersembunyi
-    document.getElementById('selected-quantity').value = selectedQuantity;
-    document.getElementById('selected-plan').value = selectedPlan;
-  }
-
-  // Event listener pada saat formulir di-submit
-  document.querySelector('#detailform').addEventListener('submit', function (event) {
-    setFormValues(); // Memanggil fungsi untuk mengatur nilai-nilai yang akan dikirim
-    // event.preventDefault(); // Jika diperlukan untuk mencegah submit formulir secara default
-  });
-</script>
-
+        // Mengatur nilai-nilai ke atribut value pada elemen input tersembunyi
+        document.getElementById('selected-quantity').value = selectedQuantity;
+        document.getElementById('selected-plan').value = selectedPlan;
+        }
+    
+        // Event listener pada saat formulir di-submit
+        document.querySelector('#detailform').addEventListener('submit', function (event) {
+        setFormValues(); // Memanggil fungsi untuk mengatur nilai-nilai yang akan dikirim
+        // event.preventDefault(); // Jika diperlukan untuk mencegah submit formulir secara default
+        });
+    </script>
+    <script src="../JavaScript/script.js"></script>
 </body>
 </html>

@@ -330,7 +330,7 @@ hr {
 
 .qr_code {
     width: 10rem;
-    height: 9rem;
+    height: 10rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -401,3 +401,103 @@ hr {
     margin-top: -51px;
 }
 
+@media (max-width:477px) {
+	.main {
+		width: 95vw;
+		height: 95vh;
+	}
+	.back-icon {
+		top: 37px;
+		left: 25px;
+	}
+	.payment_method {
+		width: 0;
+		height: 0;
+	}
+	#countdown {
+		font-size: 60px;
+		padding: 0;
+		margin-top: -23px;
+	}
+	.order_summary {
+		width: 20rem;
+		height: 35rem;
+		position: absolute;
+		top: 115px;
+		left: 0;
+		right: 0;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.order_head {
+		padding: 0;
+		text-align: center;
+	}
+	.qr_code {
+		margin-top: 177px;
+	}
+	.project_by {
+		right: 0;
+		left: 0;
+		margin-left: auto;
+		margin-right: auto;
+		top: 748px;
+		width: 190px;
+	}
+	.logo_qris {
+		top: 307px;
+		left: 0;
+		right: 0;
+		margin-left: auto;
+		margin-right: auto;
+		width: 224px;
+	}
+	.ship_head {
+		display: none;
+	}
+	.card_head{
+		display: none;
+	}
+	.card_info {
+		width: 0;
+		height: 0;
+	}
+	.card_info form{
+		display: none;
+	}
+	.save_card {
+		bottom: 0;
+		left: -31px;
+	}
+	.save_card1 {
+		bottom: 0;
+		left: 217px;
+	}
+}
+@media (max-width:400px) {
+	.order_summary {
+		height: 15rem;
+	}
+	#countdown {
+		font-size: 55px;
+	}
+	.qr_code {
+		margin-top: 18px;
+		width: 9rem;
+    	height: 9rem;
+	}
+	.project_by {
+		top: 570px;
+	}
+	.logo_qris {
+		display: none;
+	}
+	.save_card {
+		bottom: -17px;
+		left: -43px;
+	}
+	.save_card1 {
+		bottom: -17px;
+		left: 195px;
+	}
+}

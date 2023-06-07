@@ -110,7 +110,10 @@ $loggedIn = isset($_SESSION['user']);
             </div>
         </div>
         <div id="mobile">
-            <a href="Cart.php "><i class="fa-solid fa-bag-shopping"></i></a>
+            <a href="Cart.php"><i class="fa-solid fa-bag-shopping"></i></a>
+            <?php if ($loggedIn) { ?>
+            <a onclick="togglemenu()"><i class="fas fa-user-alt"></i></a>
+            <?php } ?>
             <i id="bar" class="fas fa-outdent"></i>
         </div>
     </section>

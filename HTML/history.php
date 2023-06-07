@@ -3,7 +3,7 @@ session_start();
 
 require_once ('../php/CreateTransaksi.php');
 require_once ('../php/component.php');
-
+$loggedIn = isset($_SESSION['user']);
 $database = new CreateOrder("Gymdb", "Transaksi");
 // Variabel pencarian
 $searchKeyword = "";
@@ -74,7 +74,13 @@ if (isset($_POST['logout'])) {
                 </div>
             </div>
         </div>
-        
+        <div id="mobile">
+            <a href="Cart.php"><i class="fa-solid fa-bag-shopping"></i></a>
+            <?php if ($loggedIn) { ?>
+            <a onclick="togglemenu()"><i class="fas fa-user-alt"></i></a>
+            <?php } ?>
+            <i id="bar" class="fas fa-outdent"></i>
+        </div>
     </section>
     <h1 id="formm">History Transaction</h1>
     <div class="search">

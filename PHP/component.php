@@ -48,7 +48,7 @@ function detailproduk($gymimg, $gymname, $gymprice, $gymtag, $gymday, $gymhour, 
         <div class=\"product_details\">
             <h2>$gymname</h2>
             <br>
-            <h3>$format_price</h3>
+            <h3>Rp $format_price</h3>
             <div class=\"about\">
                 <p><i class=\"fa fa-calendar\" style=\"font-size:12px\"></i><span>$gymday</span></p>
                 <p><i class=\"fa fa-clock-o\" style=\"font-size:12px\"></i><span>$gymhour</span></p>

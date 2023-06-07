@@ -466,7 +466,14 @@ footer .copyright{
     h2{
         font-size: 32px;
     }
-    
+    .deviderr {
+        margin-top: 29px;
+        margin-bottom: 10px;
+        width: 375px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
     #newsletter {
         padding: 40px 20px;
     }

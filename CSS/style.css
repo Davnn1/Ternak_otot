@@ -724,10 +724,10 @@ footer .copyright{
     font-size: 13px;
 }
 
-#cart h5{
+#cart h5 {
     font-size: 20px;
     text-align: center;
-    padding-top: 20px;
+    padding-top: 10px;
 }
 
 #cart .circle{
@@ -1160,7 +1160,7 @@ footer .copyright{
 }
 
 #profile-details .people .active{
-    color: #088178;
+    color: #E77751;
 }
 
 #profile-details {
@@ -1187,7 +1187,7 @@ footer .copyright{
 }
 
 #profile-details form button{
-    background-color: #088178;
+    background-color: #E77751;
     color: #ffffff;
 }
 
@@ -1231,10 +1231,10 @@ footer .copyright{
 }
 
 #profile-details .people div a:hover{
-    color: #088178;
+    color: #E77751;
 }
 #profile-details .people div a:hover:after{
-    background-color: #088178;
+    background-color: #E77751;
 }
 #formm {
     text-align: center;
@@ -1384,7 +1384,17 @@ button.detail-button {
     background-color: white;
     color: black;
 }
-
+.modal-contant {
+    background-color: #fefefe;
+    margin: 15% auto;
+    margin-top: 20%;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    border-radius: 10px;
+}
 
 
 @media (max-width:799px) {
@@ -1434,7 +1444,9 @@ button.detail-button {
         color: #222;
         font-size: 24px;
     }
-
+    #lg-profile{
+        display: none;
+    }
     #lg-bag{
         display: none;
     }
@@ -1494,11 +1506,12 @@ button.detail-button {
 
 @media (max-width:477px) {
     .section-p1 {
-        padding: 20px;
+        padding: 10px;
     }
     #header {
         padding: 10px 30px;
     }
+    
     h2{
         font-size: 38px;
     }
@@ -1509,6 +1522,46 @@ button.detail-button {
         padding: 0 20px;
         background-position: 55%;
     }
+    /* Shop page*/
+    #heroo {
+        padding: 0 20px;
+        background-position: 55%;
+    }
+    #heroo h2 {
+        font-size: 70px;
+        text-align: center;
+        line-height: 0.95;
+    }
+    #heroo span {
+        font-size: 80px;
+    }
+    .search__input {
+        width: 72%;
+        margin-top: 20px;
+    }
+    .devider {
+        margin-top: 29px;
+        margin-bottom: 10px;
+        width: 90vw;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    /*--------------------*/
+    .back-icon {
+        top: 27px;
+        left: 34px;
+    }
+    /* Shop page*/
+    .deviderr {
+        margin-top: 29px;
+        margin-bottom: 10px;
+        width: 90vw;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    /*--------------------*/
     #feature {
         justify-content: space-between;
     }
@@ -1529,7 +1582,7 @@ button.detail-button {
         margin-top: 20px;
     }
     #banner3 {
-        padding: 0px 20px;
+        padding: 0px 10px;
     }
     #banner3 .banner-box {
         width: 100%;
@@ -1543,7 +1596,29 @@ button.detail-button {
     footer .copyright {
         text-align: start;
     }
-
+    /* Cart page*/
+    #cart table {
+        table-layout: auto;
+    }
+    #coupon {
+        width: 100%;
+    }
+    #coupon input {
+        width: 100%;
+    }
+    #subtotal {
+        width: 100%;
+    }
+    #subtotal button {
+        width: 166px;
+    }
+    .modal-buttons button {
+        width: 145px;
+    }
+    .modal-contant {
+        margin-top: 85%;
+    }
+    /*----------*/
     /* BLOG PAGE */
     #blog {
         padding: 100px 20px 0 20px;
@@ -1616,5 +1691,21 @@ button.detail-button {
     #profile-details .people{
         margin-top: 0px;
         margin-left: 0%;
+    }
+    #formm {
+        font-size: 60px;
+    }
+
+}
+
+@media (max-width:400px) {
+    #subtotal button {
+        width: 23vh;
+    }
+    .modal-buttons button {
+        width: 129px;
+    }
+    .section-p1 {
+        padding: 2px;
     }
 }

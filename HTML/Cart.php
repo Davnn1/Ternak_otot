@@ -3,7 +3,7 @@ session_start();
 
 require_once ('../php/CreateDb.php');
 require_once ('../php/component.php');
-
+$loggedIn = isset($_SESSION['user']);
 $database = new CreateDb("Gymdb", "Gymtb");
 $uniqueCode = mt_rand(1, 999);
 if (!isset($_SESSION['user'])) {
@@ -158,7 +158,10 @@ if (isset($_POST['checkout'])) {
             </div>
         </div>
         <div id="mobile">
-            <a href="Cart.php "><i class="fa-solid fa-bag-shopping"></i></a>
+            <a href="Cart.php"><i class="fa-solid fa-bag-shopping"></i></a>
+            <?php if ($loggedIn) { ?>
+            <a onclick="togglemenu()"><i class="fas fa-user-alt"></i></a>
+            <?php } ?>
             <i id="bar" class="fas fa-outdent"></i>
         </div>
     </section>
@@ -191,14 +194,12 @@ if (isset($_POST['checkout'])) {
                     }
                 }
             } 
+            if (empty($_SESSION['cart'])) {
+                echo "<tr><td colspan='7'><h5>Cart is empty.</h5></td></tr>";
+            }
             ?>
             </tbody>
         </table>
-        <?php
-        if (empty($_SESSION['cart'])) {
-            echo "<h5>Cart is empty</h5>";
-        }
-        ?>
     </section>
 
     <section id="cart-add" class="section-p1">
@@ -231,7 +232,7 @@ if (isset($_POST['checkout'])) {
                             <button name="check" class="normal ck">Checkout</button>
                         </form>
                         <form action="" method="post" onsubmit="return confirmClearCart()">
-                            <button class="normal cl" name="clear">Clear Cart</button>
+                            <button class="normal cl" name="clearr">Clear Cart</button>
                         </form>
                     </div>
                 <?php else : ?>
@@ -271,6 +272,20 @@ if (isset($_POST['checkout'])) {
                     <input type='hidden' id="code" name="code" value=<?php echo $uniqueCode; ?>>
                     <input type='hidden' id="tot" name="tot" value=<?php echo $total + $uniqueCode; ?>>
                     <button id="acceptBtn" class="normal ck" name="checkout">Accept</button>
+                    </form>
+                    <form action="" method="post" >
+                    <button id="denyBtn" class="normal cl">Deny</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div id="meModal" class="modal">
+            <div class="modal-contant">
+                <h3>MEMBERSHIP T&C</h3>
+                <p>Are you sure you want to clear the cart?</p>
+                <div class="modal-buttons">
+                    <form action="" method="post" >
+                    <button id="acceptBtn" class="normal ck" name="clear">Accept</button>
                     </form>
                     <form action="" method="post" >
                     <button id="denyBtn" class="normal cl">Deny</button>
@@ -408,40 +423,68 @@ if (isset($_POST['checkout'])) {
 
     <script>
         function confirmClearCart() {
-            return confirm("Are you sure you want to clear the cart?");
-        }
-
-        function confirmCheckout() {
-        var modal = document.getElementById('myModal');
-        var acceptBtn = document.getElementById('acceptBtn');
-        var denyBtn = document.getElementById('denyBtn');
-
-        modal.style.display = "block";
-
-        acceptBtn.onclick = function() {
-            // Proses pembelian membership
-            // ...
-
-            // Tutup modal
-            modal.style.display = "none";
-            return true;
-        }
-
-        denyBtn.onclick = function() {
-            // Tutup modal
-            modal.style.display = "none";
+            var modal = document.getElementById('meModal');
+            var acceptBtn = document.getElementById('acceptBtn');
+            var denyBtn = document.getElementById('denyBtn');
+            
+            modal.style.display = "block";
+            
+            acceptBtn.onclick = function() {
+                // Proses pembelian membership
+                // ...
+            
+                // Tutup modal
+                modal.style.display = "none";
+                return true;
+            }
+        
+            denyBtn.onclick = function() {
+                // Tutup modal
+                modal.style.display = "none";
+                return false;
+            }
+        
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    // Tutup modal jika diklik di area di luar modal
+                    modal.style.display = "none";
+                }
+            }
+            
             return false;
         }
 
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                // Tutup modal jika diklik di area di luar modal
+        function confirmCheckout() {
+            var modal = document.getElementById('myModal');
+            var acceptBtn = document.getElementById('acceptBtn');
+            var denyBtn = document.getElementById('denyBtn');
+
+            modal.style.display = "block";
+
+            acceptBtn.onclick = function() {
+                // Proses pembelian membership
+                // ...
+
+                // Tutup modal
                 modal.style.display = "none";
+                return true;
             }
+
+            denyBtn.onclick = function() {
+                // Tutup modal
+                modal.style.display = "none";
+                return false;
+            }
+
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    // Tutup modal jika diklik di area di luar modal
+                    modal.style.display = "none";
+                }
+            }
+
+            return false;
         }
-        
-        return false;
-    }
     </script>
     <script>
         let subMenu = document.getElementById("subMenu");
