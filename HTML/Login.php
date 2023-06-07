@@ -48,6 +48,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
     }
 }
+function validateEmail($email) {
+    // Use a regular expression to validate the email format
+    return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
+}
 ?>
 
 <!DOCTYPE html>
