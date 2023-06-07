@@ -1698,6 +1698,9 @@ button.detail-button {
     .form label .input {
         width: 328px;
     }
+    #sm-banner {
+        margin-bottom: 15px;
+    }
 }
 
 @media (max-width:400px) {
@@ -1712,5 +1715,9 @@ button.detail-button {
     }
     .form label .input {
         width: 305px;
+    }
+    #sm-banner {
+        padding: 0 10px;
+        margin-bottom: 20px;
     }
 }
