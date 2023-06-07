@@ -152,3 +152,8 @@ body::before {
       opacity: 0;
     }
   }
+  @media (max-width:400px) {
+    .form label .input {
+        width: 270px;
+    }
+  }
