@@ -25,7 +25,7 @@ Key features of the app:
 - Download or clone from this repository.
 - Unzip the folder.
 - Cut folder to your htdocs diretory.
-- Insert gymdb.sql inside the folder to http://localhost/phpmyadmin/.
+- Insert gymdb.sql database inside the folder to http://localhost/phpmyadmin/.
 - Run the website on the FHD resolution or Iphone XR or Iphone SE for the best experience.
 
 # License
