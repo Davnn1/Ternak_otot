@@ -29,7 +29,7 @@ Key features of the app:
 - Run the website on the FHD resolution or Iphone XR or Iphone SE for the best experience.
 
 # License
-MIT  © [Davin]
+MIT  © Davin
 
 ## Contributing
 
